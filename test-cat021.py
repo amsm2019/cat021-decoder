@@ -1,0 +1,17 @@
+import asterix
+
+# This is binary presentation of asterix packet of CAT048
+#                  len  cat 048
+#                 ---- ---------
+asterix_packet = bytearray([0x30, 0x00, 0x30, 0xfd, 0xf7, 0x02, 0x19, 0xc9, 0x35, 0x6d, 0x4d, 0xa0, 0xc5, 0xaf, 0xf1, 0xe0,
+                        0x02, 0x00, 0x05, 0x28, 0x3c, 0x66, 0x0c, 0x10, 0xc2, 0x36, 0xd4, 0x18, 0x20, 0x01, 0xc0, 0x78,
+                        0x00, 0x31, 0xbc, 0x00, 0x00, 0x40, 0x0d, 0xeb, 0x07, 0xb9, 0x58, 0x2e, 0x41, 0x00, 0x20, 0xf5])
+
+hexstr = '15004EFF9FB35B83E40001080001014CFBA315CD2A4A0EAF0AE69555250757D74CFB330005554CFBA31189374B4CFB3319CAC08341C60A00500C000000F500004CFBB3414175D75820006A06D901'
+asterix_packet2 = bytearray.fromhex(hexstr)
+# parse and print packet
+parsed = asterix.parse(asterix_packet)
+print(parsed)
+# print formatted packet
+# If you want to see textual presentation of asterix packet use describe::
+print(asterix.describe(parsed))
